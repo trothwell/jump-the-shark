@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <groupId>com.jts.fooguice</groupId>
+   <artifactId>fooguice-parent</artifactId>
+   <name>FOO-GUICE Multi-module Parent</name>
+   <packaging>pom</packaging>
+   <version>1.0.0.0-SNAPSHOT</version>
+
+   <scm>
+      <connection>scm:svn:https://jump-the-shark.googlecode.com/svn/project/foo-guice-webapp/trunk</connection>
+      <developerConnection>scm:svn:http://jump-the-shark.googlecode.com/svn/trunk/</developerConnection>
+      <url>http://code.google.com/p/jump-the-shark/source/browse/#svn/project/foo-guice-webapp/trunk</url>
+   </scm>
+
+   <properties>
+      <guice.version>2.0</guice.version>
+
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <maven.compiler.source>1.6</maven.compiler.source>
+      <maven.compiler.target>1.6</maven.compiler.target>
+      <maven.compiler.debug>true</maven.compiler.debug>
+      <maven.compiler.optimize>false</maven.compiler.optimize>
+      <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
+      <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
+   </properties>
+
+   <!-- define dependency versions -->
+   <dependencyManagement>
+      <dependencies>
+
+         <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>${guice.version}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+         </dependency>
+
+         <dependency>
+            <groupId>com.google.inject.extensions</groupId>
+            <artifactId>guice-servlet</artifactId>
+            <version>${guice.version}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+         </dependency>
+
+         <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <type>jar</type>
+            <scope>compile</scope>
+         </dependency>
+
+      </dependencies>
+   </dependencyManagement>
+
+   <dependencies />
+
+   <build>
+      <!-- define plugin versions -->
+      <pluginManagement>
+         <plugins />
+      </pluginManagement>
+
+      <plugins />
+   </build>
+
+   <modules>
+      <module>webapp</module>
+   </modules>
+
+</project>
