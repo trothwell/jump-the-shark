@@ -4,8 +4,11 @@
 
    <groupId>org.jts</groupId>
    <artifactId>codestyle</artifactId>
-   <name>JTS Codestyle</name>
    <version>1-SNAPSHOT</version>
+
+   <!-- Project info. -->
+   <name>JTS Codestyle</name>
+   <description>Codestyle settings for JTS.</description>
 
    <scm>
       <connection>scm:svn:http://jump-the-shark.googlecode.com/svn/trunk/core/checkstyle</connection>
