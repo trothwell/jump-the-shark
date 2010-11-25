@@ -3,13 +3,13 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.jts</groupId>
-	<artifactId>projects-aggregator</artifactId>
+	<artifactId>project-aggregator</artifactId>
 	<version>1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 
 	<!-- Project info. -->
-	<name>Jump-The-Share Projects Aggregator</name>
+	<name>JTS Project Aggregator</name>
 	<description>Aggregator for projects.</description>
 
 	<modules>
