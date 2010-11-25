@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <groupId>org.jts</groupId>
+   <artifactId>codestyle</artifactId>
+   <name>JTS Codestyle</name>
+   <version>1-SNAPSHOT</version>
+
+   <scm>
+      <connection>scm:svn:http://jump-the-shark.googlecode.com/svn/trunk/core/checkstyle</connection>
+      <developerConnection>scm:svn:https://jump-the-shark.googlecode.com/svn/trunk/core/checkstyle</developerConnection>
+      <url>http://jump-the-shark.googlecode.com/svn/trunk/core/checkstyle</url>
+   </scm>
+
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+               <source>1.6</source>
+               <target>1.6</target>
+               <showDeprecation>true</showDeprecation>
+               <showWarnings>true</showWarnings>
+            </configuration>
+         </plugin>
+
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <configuration>
+               <includes>
+                  <include>**/*/jts-checkstyle.xml</include>
+                  <include>**/*/jts-checkstyle-tests.xml</include>
+               </includes>
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
+
+   <modules />
+</project>

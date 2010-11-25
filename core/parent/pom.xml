@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <groupId>org.jts</groupId>
+   <artifactId>parent</artifactId>
+   <packaging>pom</packaging>
+   <version>1-SNAPSHOT</version>
+
+   <!-- Project Info -->
+   <name>JTS Root POM</name>
+   <inceptionYear>2010</inceptionYear>
+
+   <scm>
+      <connection>scm:svn:http://jump-the-shark.googlecode.com/svn/trunk/core/parent</connection>
+      <developerConnection>scm:svn:https://jump-the-shark.googlecode.com/svn/trunk/core/parent</developerConnection>
+      <url>http://jump-the-shark.googlecode.com/svn/trunk/core/parent</url>
+   </scm>
+
+   <prerequisites>
+      <maven>2.0.9</maven> <!-- min. version required to build -->
+   </prerequisites>
+
+   <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+   </properties>
+
+   <organization>
+      <name>Jump The Shark</name>
+      <url>http://code.google.com/p/jump-the-shark/</url>
+   </organization>
+
+   <repositories>
+   </repositories>
+
+   <distributionManagement>
+   </distributionManagement>
+
+   <build>
+      <!-- define plugin versions (sorted alphabetically) -->
+      <pluginManagement>
+         <plugins>
+
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-checkstyle-plugin</artifactId>
+               <version>2.6</version>
+               <dependencies>
+                  <dependency>
+                     <groupId>org.jts</groupId>
+                     <artifactId>codestyle</artifactId>
+                     <version>1-SNAPSHOT</version>
+                     <type>jar</type>
+                  </dependency>
+               </dependencies>
+            </plugin>
+
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-release-plugin</artifactId>
+               <version>2.1</version>
+            </plugin>
+
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-war-plugin</artifactId>
+               <version>2.1</version>
+            </plugin>
+
+         </plugins>
+      </pluginManagement>
+
+      <plugins>
+
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-checkstyle-plugin</artifactId>
+            <executions>
+
+               <execution>
+                  <id>jts-checkstyle-sources</id>
+                  <goals>
+                     <goal>check</goal>
+                  </goals>
+                  <configuration>
+                     <consoleOutput>false</consoleOutput>
+                     <configLocation>jts-codestyle/jts-checkstyle.xml</configLocation>
+                     <includeTestSourceDirectory>false</includeTestSourceDirectory>
+                  </configuration>
+               </execution>
+
+               <execution>
+                  <id>jts-checkstyle-tests</id>
+                  <goals>
+                     <goal>check</goal>
+                  </goals>
+                  <configuration>
+                     <consoleOutput>true</consoleOutput>
+                     <configLocation>jts-codestyle/jts-checkstyle-tests.xml</configLocation>
+                     <sourceDirectory>${project.build.testSourceDirectory}</sourceDirectory>
+                     <includeTestSourceDirectory>false</includeTestSourceDirectory>
+                  </configuration>
+               </execution>
+
+            </executions>
+         </plugin>
+
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+               <source>1.6</source>
+               <target>1.6</target>
+               <showDeprecation>true</showDeprecation>
+               <showWarnings>true</showWarnings>
+            </configuration>
+         </plugin>
+
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-release-plugin</artifactId>
+            <configuration>
+               <goals>deploy</goals>
+               <arguments>-Pjts-release -Prun-its</arguments>
+            </configuration>
+         </plugin>
+
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>attach-sources</id>
+                  <goals>
+                     <goal>jar</goal>
+                  </goals>
+               </execution>
+            </executions>
+         </plugin>
+
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <inherited>true</inherited>
+            <configuration>
+               <skip>true</skip>
+            </configuration>
+            <executions>
+               <execution>
+                  <id>jts-unit-tests</id>
+                  <phase>test</phase>
+                  <goals>
+                     <goal>test</goal>
+                  </goals>
+                  <configuration>
+                     <includes>
+                        <include>**/UnitTestSuite.java</include>
+                     </includes>
+                     <forkMode>never</forkMode>
+                     <skip>false</skip>
+                  </configuration>
+               </execution>
+               <execution>
+                  <id>jts-integration-tests</id>
+                  <phase>test</phase>
+                  <goals>
+                     <goal>test</goal>
+                  </goals>
+                  <configuration>
+                     <includes>
+                        <include>**/IntegrationTestSuite.java</include>
+                     </includes>
+                     <forkMode>never</forkMode>
+                     <skip>true</skip>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+
+      </plugins>
+   </build>
+
+   <profiles>
+
+      <profile>
+         <id>jts-release</id>
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-javadoc-plugin</artifactId>
+                  <executions>
+                     <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                           <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                           <quiet>true</quiet>
+                        </configuration>
+                     </execution>
+                  </executions>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+
+      <profile>
+         <id>run-its</id>
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-surefire-plugin</artifactId>
+                  <executions>
+                     <execution>
+                        <id>jts-integration-tests</id>
+                        <configuration>
+                           <skip>false</skip>
+                        </configuration>
+                     </execution>
+                  </executions>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+
+   </profiles>
+
+</project>
