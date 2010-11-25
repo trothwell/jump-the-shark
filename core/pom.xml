@@ -9,7 +9,7 @@
 
 
 	<!-- Project info. -->
-	<name>Jump-The-Share Core Aggregator</name>
+	<name>JTS Core Aggregator</name>
 	<description>Aggregator for core projects.</description>
 
 	<modules>
