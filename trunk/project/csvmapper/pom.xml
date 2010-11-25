@@ -20,4 +20,10 @@
    <!-- Project info. -->
    <name>CSVMapper Nested Parent</name>
 
+   <scm>
+      <connection>scm:svn:http://jump-the-shark.googlecode.com/svn/trunk/project/csvmapper</connection>
+      <developerConnection>scm:svn:https://jump-the-shark.googlecode.com/svn/trunk/project/csvmapper</developerConnection>
+      <url>http://jump-the-shark.googlecode.com/svn/trunk/project/csvmapper</url>
+   </scm>
+
 </project>
