@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="copy" name="Copy checkstyle configuration to project folders">
+   <path id="antcontrib.classpath">
+      <fileset dir="${basedir}" includes="lib/ant-contrib-0.6.jar" />
+   </path>
+   <taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="antcontrib.classpath" />
+
+   <target name="copy">
+      <!-- Determine path to copy checkfile properties -->
+      <if>
+         <equals arg1="${dir}" arg2="$${dir}" />
+         <then>
+            <!-- Find root of codestyle project -->
+            <propertyregex override="true" property="basedir" input="${basedir}" regexp="[\\]" replace="/" global="true" />
+            <dirname property="project.dir" file="${basedir}/../../../" />
+            <propertyregex override="true" property="project.dir" input="${project.dir}" regexp="[\\]" replace="/" global="true" />
+            <dirname property="workspace.dir" file="${project.dir}" />
+            <propertyregex override="true" property="workspace.dir" input="${workspace.dir}" regexp="[\\]" replace="/" global="true" />
+            <property name="codestyle.path" value="/src/main/resources/jts-codestyle" />
+
+            <if>
+               <equals arg1="${basedir}" arg2="${project.dir}${codestyle.path}" />
+               <else>
+                  <echo message="basedir = ${basedir}" />
+                  <echo message="codestyle = ${project.dir}${codestyle.path}" />
+                  <fail message="Working path is not expected path. ./${codestyle.path}" />
+               </else>
+            </if>
+
+            <echo message="basedir = ${basedir}" />
+            <echo message="project.dir = ${project.dir}" />
+            <echo message="workspace.dir = ${workspace.dir}" />
+            <property name="dir" value="${workspace.dir}" />
+         </then>
+         <else>
+            <!-- Use specified path -->
+            <echo message="basedir = ${basedir}" />
+            <echo message="dir = ${dir}" />
+         </else>
+      </if>
+
+      <for param="file">
+         <path>
+            <fileset dir="${dir}">
+               <include name="**/*/.project" />
+            </fileset>
+         </path>
+         <sequential>
+            <antcall target="copyFile">
+               <param name="srcFile" value="${basedir}/jts-eclipse-checkstyle.xml" />
+               <param name="dstFile" value="@{file}/../.checkstyle" />
+            </antcall>
+         </sequential>
+      </for>
+   </target>
+
+   <target name="copyFile">
+      <echo message="srcFile = ${srcFile}" />
+      <echo message="dstFile = ${dstFile}" />
+      <copy file="${srcFile}" tofile="${dstFile}" verbose="true" overwrite="true" />
+   </target>
+
+</project>

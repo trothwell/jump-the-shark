@@ -1,0 +1,18 @@
+# Organize Import Order for JTS
+0=\#com.touchnet
+1=com.touchnet
+2=\#ch
+3=ch
+4=\#com
+5=com
+6=\#junit
+7=junit
+8=\#net
+9=net
+10=\#org
+11=org
+12=\#java
+13=java
+14=\#javax
+15=javax
+
