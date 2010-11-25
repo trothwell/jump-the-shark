@@ -1,19 +1,22 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<project
+   xmlns="http://maven.apache.org/POM/4.0.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+   <modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.jts</groupId>
-	<artifactId>project-aggregator</artifactId>
-	<version>1-SNAPSHOT</version>
-	<packaging>pom</packaging>
+   <groupId>org.jts</groupId>
+   <artifactId>project-aggregator</artifactId>
+   <version>1-SNAPSHOT</version>
+   <packaging>pom</packaging>
 
 
-	<!-- Project info. -->
-	<name>JTS Project Aggregator</name>
-	<description>Aggregator for projects.</description>
+   <!-- Project info. -->
+   <name>JTS Project Aggregator</name>
+   <description>Aggregator for projects.</description>
 
-	<modules>
-		<module>csvmapper</module>
-	</modules>
+   <modules>
+      <module>csvmapper</module>
+   </modules>
 
 </project>
