@@ -1,0 +1,72 @@
+<project
+   xmlns="http://maven.apache.org/POM/4.0.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <groupId>org.jts</groupId>
+      <artifactId>parent</artifactId>
+      <version>1-SNAPSHOT</version>
+   </parent>
+
+   <groupId>org.jts.portmapper</groupId>
+   <artifactId>portmapper</artifactId>
+   <version>0.0.1-SNAPSHOT</version>
+   <packaging>jar</packaging>
+
+
+   <!-- Project info. -->
+   <name>tcpportmap</name>
+
+   <scm>
+      <connection>scm:svn:http://jump-the-shark.googlecode.com/svn/trunk/project/tcpportmap</connection>
+      <developerConnection>scm:svn:https://jump-the-shark.googlecode.com/svn/trunk/project/tcpportmap</developerConnection>
+      <url>http://jump-the-shark.googlecode.com/svn/trunk/project/tcpportmap</url>
+   </scm>
+
+   <properties>
+      <checkstyle.skip>true</checkstyle.skip>
+
+      <!-- Internal -->
+
+
+      <!-- External -->
+      <tr-guice.version>2.0</tr-guice.version>
+      <tr-lbclassic.version>0.9.26</tr-lbclassic.version>
+      <tr-slf4j.version>1.6.1</tr-slf4j.version>
+   </properties>
+
+   <dependencies>
+
+      <!-- Internal -->
+
+      <!-- External -->
+
+      <dependency>
+         <groupId>ch.qos.logback</groupId>
+         <artifactId>logback-classic</artifactId>
+         <type>jar</type>
+         <version>${tr-lbclassic.version}</version>
+         <scope>runtime</scope>
+      </dependency>
+
+      <dependency>
+         <groupId>com.google.inject</groupId>
+         <artifactId>guice</artifactId>
+         <type>jar</type>
+         <version>${tr-guice.version}</version>
+         <scope>compile</scope>
+      </dependency>
+
+      <dependency>
+         <groupId>org.slf4j</groupId>
+         <artifactId>slf4j-api</artifactId>
+         <type>jar</type>
+         <version>${tr-slf4j.version}</version>
+         <scope>compile</scope>
+      </dependency>
+
+   </dependencies>
+</project>
