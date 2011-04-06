@@ -12,11 +12,11 @@
    <scm>
       <connection>scm:svn:https://jump-the-shark.googlecode.com/svn/project/foo-guice-webapp/trunk</connection>
       <developerConnection>scm:svn:http://jump-the-shark.googlecode.com/svn/trunk/</developerConnection>
-      <url>http://code.google.com/p/jump-the-shark/source/browse/#svn/project/foo-guice-webapp/trunk</url>
+      <url>http://code.google.com/p/jump-the-shark/source/browse/svn/project/foo-guice-webapp/trunk</url>
    </scm>
 
    <properties>
-      <guice.version>2.0</guice.version>
+      <guice.version>3.0</guice.version>
 
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <maven.compiler.source>1.6</maven.compiler.source>
